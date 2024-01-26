@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1A232C"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,6 +16,10 @@
         android:textSize="23sp"
         android:textStyle="bold"
         android:layout_margin="20dp"/>
-    
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatsData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

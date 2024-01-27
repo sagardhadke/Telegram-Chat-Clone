@@ -26,7 +26,10 @@ class ChatsAdapter (val context: Context,val chatsArrayList:ArrayList<ChatsModel
         holder.binding.teleChatName.text =chatsArrayList[position].name
         holder.binding.teleDiss.text = chatsArrayList[position].lastmessage
         holder.binding.teleDate.text = chatsArrayList[position].time
-
+        holder.binding.teleImg.setOnClickListener {
+            chatsArrayList.removeAt(position)
+            notifyDataSetChanged()
+        }
         holder.itemView.setOnClickListener {
             Toast.makeText(context, "${position}", Toast.LENGTH_SHORT).show()
         }

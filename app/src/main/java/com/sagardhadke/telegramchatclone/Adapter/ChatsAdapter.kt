@@ -1,5 +1,6 @@
 package com.sagardhadke.telegramchatclone.Adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -26,12 +27,24 @@ class ChatsAdapter (val context: Context,val chatsArrayList:ArrayList<ChatsModel
         holder.binding.teleChatName.text =chatsArrayList[position].name
         holder.binding.teleDiss.text = chatsArrayList[position].lastmessage
         holder.binding.teleDate.text = chatsArrayList[position].time
-        holder.binding.teleImg.setOnClickListener {
-            chatsArrayList.removeAt(position)
-            notifyDataSetChanged()
-        }
         holder.itemView.setOnClickListener {
             Toast.makeText(context, "${position}", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.itemView.setOnLongClickListener {
+            Toast.makeText(context, "Test", Toast.LENGTH_SHORT).show()
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Delete")
+            builder.setMessage("Are you sure you want to delete this item?")
+            builder.setPositiveButton("Yes") { dialog, which ->
+                chatsArrayList.removeAt(position)
+                notifyDataSetChanged()
+            }
+            builder.setNegativeButton("No") { dialog, which ->
+                dialog.dismiss()
+            }
+            builder.show()
+            true
         }
 
     }

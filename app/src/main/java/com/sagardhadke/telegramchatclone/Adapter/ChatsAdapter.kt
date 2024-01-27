@@ -3,6 +3,7 @@ package com.sagardhadke.telegramchatclone.Adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.sagardhadke.telegramchatclone.Model.ChatsModel
 import com.sagardhadke.telegramchatclone.databinding.DummyChatsBinding
@@ -25,6 +26,11 @@ class ChatsAdapter (val context: Context,val chatsArrayList:ArrayList<ChatsModel
         holder.binding.teleChatName.text =chatsArrayList[position].name
         holder.binding.teleDiss.text = chatsArrayList[position].lastmessage
         holder.binding.teleDate.text = chatsArrayList[position].time
+
+        holder.itemView.setOnClickListener {
+            Toast.makeText(context, "${position}", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 }

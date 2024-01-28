@@ -43,7 +43,6 @@ class ChatsAdapter (val context: Context,val chatsArrayList:ArrayList<ChatsModel
             builder.setNegativeButton("No") { dialog, which ->
                 dialog.dismiss()
             }
-            builder.show()
             true
         }
 
